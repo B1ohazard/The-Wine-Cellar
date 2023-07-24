@@ -1,0 +1,39 @@
+﻿@model TheWineCellarMVC.Models.Farmer
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+<div id="productCard" class="card">
+    <div id="productCard" class="container" style="background-color: transparent;">
+        <div>
+            <h4>Farmer</h4>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.FirstName)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.FirstName)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.LastName)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.LastName)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.ContactNumber)
+                </dt>
+                <dd class="col-sm-10">
+                +27 @Html.DisplayFor(model => model.ContactNumber)
+                </dd>
+            </dl>
+        </div>
+        <div>
+            <a class="btn btn-sm" asp-action="Edit" asp-route-id="@Model.FarmerId">Edit</a>
+            <a class="btn btn-sm" asp-action="List">Back to List</a>
+        </div>
+    </div>
+</div>

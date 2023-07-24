@@ -1,0 +1,44 @@
+﻿@model TheWineCellarMVC.ViewModels.ProductSearchListViewModel
+
+<html>
+
+<h1>Currently Available Wines</h1> <!--Page Heading-->
+<body>
+    <form autocomplete="off">
+        <p>
+            Search By Product Type: <input type="text" asp-for="SearchProductTypeString" />
+            <input type="submit" value="Filter" />
+        </p>
+    </form>
+    <form autocomplete="off">
+        <p>
+            Search By Farmer Email: <input type="text" asp-for="SearchEmailString" />
+            <input type="submit" value="Filter" />
+        </p>
+    </form>
+    <p>
+    </p>
+    <ul style="padding-right: 40px">
+        <!--foreach to show the products-->
+        @foreach (var product in Model.Products)
+        {
+            <li style="display: inline-block;">
+                <div id="productCard" class="card" style="width: 300px; ">
+                    <div id="productCard" class="container" style="background-color: transparent;">
+                        <img src="@product.ProductImage" height="150" width="100" />
+                        <div style="font-weight: bold; color: gold">@product.ProductName</div>
+                        <p><a style="text-decoration: none;" asp-controller="Products" asp-action="Details" asp-route-id="@product.ProductId">View Details</a></p>
+                        <div>Catergory: @product.Category </div>
+                        <div style="font-weight: bold">@product.ProductPrice.ToString("c")</div>
+                    </div>
+                </div>
+            </li>
+        }
+    </ul>
+
+
+
+</body>
+
+</html>
+

@@ -1,0 +1,30 @@
+﻿@model TheWineCellarMVC.ViewModels.FarmerListViewModel
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE-edge" />
+    <meta name="viewport" content="widt=device-width" , initial-scale="1.0" />
+    <title>The Wine Cellar 2023</title>
+
+</head>
+<h1>Farmers In The Database</h1> <!--Page Heading-->
+<body>
+    <br />
+    <ul style="padding-right: 40px">
+        <!--foreach to show the farmers-->
+        @foreach (var farmer in Model.Farmers)
+        {
+            <li style="display: inline-block;">
+                <div id="productCard" class="card" style="width: 300px; ">
+                    <div id="productCard" class="container" style="background-color: transparent;">
+                        <div style="font-weight: bold;">@farmer.FirstName @farmer.LastName</div>
+                        <p><a style="text-decoration: none;" asp-controller="Farmers" asp-action="Details" asp-route-id="@farmer.FarmerId">View Details</a></p>
+                    </div>
+                </div>
+            </li>
+        }
+    </ul>
+
+</body>
+
+</html>

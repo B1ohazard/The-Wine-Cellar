@@ -1,0 +1,52 @@
+﻿@model IEnumerable<TheWineCellarMVC.Models.Farmer>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Farmers</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-secondary">Add New Farmer</a>
+</p>
+<div id="productCard" class="card">
+    <div id="productCard" class="container" style="background-color: transparent;">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FirstName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.LastName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ContactNumber)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FirstName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LastName)
+                        </td>
+                        <td>
+                           +27 @Html.DisplayFor(modelItem => item.ContactNumber)
+                        </td>
+                        <td>
+                            <a class="btn btn-sm" asp-action="Edit" asp-route-id="@item.FarmerId">Edit</a> 
+                            <a class="btn btn-sm" asp-action="Details" asp-route-id="@item.FarmerId">Details</a> 
+                            <a class="btn btn-sm" asp-action="Delete" asp-route-id="@item.FarmerId">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
